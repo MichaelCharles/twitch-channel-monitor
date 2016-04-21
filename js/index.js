@@ -172,12 +172,12 @@ function populateList(searchQuery) { // This function grabs the data from
       renderList();
     }
     list.forEach(function(username) {
-      $.getJSON('https://api.twitch.tv/kraken/streams/' +
+      $.getJSON('http://api.twitch.tv/kraken/streams/' +
         username +
         '?callback=?',
         function(data) {
           if (data.hasOwnProperty("stream")) { // If there is stream data, parse it.
-            $.getJSON('https://api.twitch.tv/kraken/channels/' +
+            $.getJSON('http://api.twitch.tv/kraken/channels/' +
               username +
               '?callback=?',
               function(channel) {
