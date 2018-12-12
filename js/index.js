@@ -19,7 +19,7 @@ function doSearch() {
     function(data) {
       console.log(data);
       if (!data.hasOwnProperty("error")) {
-        htmlSearch = "<div><a href='http://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (data.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : data.logo) + "'></span><span class='name'>" + data.display_name + "</span></a><span class='status'><!-- offline --></span><i class='material-icons add-search'>add</i></div>"
+        htmlSearch = "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (data.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : data.logo) + "'></span><span class='name'>" + data.display_name + "</span></a><span class='status'><!-- offline --></span><i class='material-icons add-search'>add</i></div>"
         $(".search-container").html(htmlSearch);
         $(".search-title > h2").html("Search Results");
         $(".search-container").show();
@@ -172,17 +172,17 @@ function populateList(searchQuery) { // This function grabs the data from
       renderList();
     }
     list.forEach(function(username) {
-      $.getJSON('http://api.twitch.tv/kraken/streams/' +
+      $.getJSON('https://api.twitch.tv/kraken/streams/' +
         username +
         '?callback=?',
         function(data) {
           if (data.hasOwnProperty("stream")) { // If there is stream data, parse it.
-            $.getJSON('http://api.twitch.tv/kraken/channels/' +
+            $.getJSON('https://api.twitch.tv/kraken/channels/' +
               username +
               '?callback=?',
               function(channel) {
                 if (data.stream == null) {
-                  htmlOffline += "<div><a href='http://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><!-- offline --></span><i class='material-icons clear'>clear</i></div>"
+                  htmlOffline += "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><!-- offline --></span><i class='material-icons clear'>clear</i></div>"
                   count++;
 
                   if (count == list.length) {
@@ -191,7 +191,7 @@ function populateList(searchQuery) { // This function grabs the data from
                   userData.push(data);
                 } else { // Else, add the user to the online list.
                   userData.push(data);
-                  htmlOnline += "<div><a href='http://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><a href='http://twitch.tv/" + username + "' target='_blank'>" + data.stream.game + "</a></span><span class='clear'><i class='material-icons'>clear</i></span></div>"
+                  htmlOnline += "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><a href='http://twitch.tv/" + username + "' target='_blank'>" + data.stream.game + "</a></span><span class='clear'><i class='material-icons'>clear</i></span></div>"
                   count++;
 
                   if (count == list.length) {
