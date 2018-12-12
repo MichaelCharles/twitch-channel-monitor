@@ -191,7 +191,7 @@ function populateList(searchQuery) { // This function grabs the data from
                   userData.push(data);
                 } else { // Else, add the user to the online list.
                   userData.push(data);
-                  htmlOnline += "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><a href='http://twitch.tv/" + username + "' target='_blank'>" + data.stream.game + "</a></span><span class='clear'><i class='material-icons'>clear</i></span></div>"
+                  htmlOnline += "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><a href='https://twitch.tv/" + username + "' target='_blank'>" + data.stream.game + "</a></span><span class='clear'><i class='material-icons'>clear</i></span></div>"
                   count++;
 
                   if (count == list.length) {
