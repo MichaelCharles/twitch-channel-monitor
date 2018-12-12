@@ -1,6 +1,6 @@
 # Twitch Channel Monitor
 
-[See it live on GitHub pages.](https://mca62511.github.io/twitch-channel-monitor)
+[See it live on GitHub pages.](https://mcaubrey.github.io/twitch-channel-monitor)
 
 A Pen created at CodePen.io. You can find this one at http://codepen.io/mca62511/pen/eZZavK.
 
