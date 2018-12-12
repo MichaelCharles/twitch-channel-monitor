@@ -15,7 +15,7 @@ function doSearch() {
   username = $(".search-span > input").val().trim();
   $.getJSON('https://api.twitch.tv/kraken/channels/' +
     username +
-    '?callback=?',
+    '?callback=?'+'&client_id=sbenlo7ha3i2gtwm7aflibbvlnsv15',
     function(data) {
       console.log(data);
       if (!data.hasOwnProperty("error")) {
@@ -38,7 +38,7 @@ function addNewUser(fromSearch) {
   newUser = fromSearch ? fromSearch.toLowerCase().trim().replace(/\s/g, "") : $("#new-streamer-id").val().toLowerCase().trim();
   $.getJSON('https://api.twitch.tv/kraken/streams/' +
     newUser +
-    '?callback=?',
+    '?callback=?'+'&client_id=sbenlo7ha3i2gtwm7aflibbvlnsv15',
     function(data) {
       if (!data.hasOwnProperty("error")) {
         myUsers.push(newUser);
@@ -174,12 +174,12 @@ function populateList(searchQuery) { // This function grabs the data from
     list.forEach(function(username) {
       $.getJSON('https://api.twitch.tv/kraken/streams/' +
         username +
-        '?callback=?',
+        '?callback=?'+'&client_id=sbenlo7ha3i2gtwm7aflibbvlnsv15',
         function(data) {
           if (data.hasOwnProperty("stream")) { // If there is stream data, parse it.
             $.getJSON('https://api.twitch.tv/kraken/channels/' +
               username +
-              '?callback=?',
+              '?callback=?'+'&client_id=sbenlo7ha3i2gtwm7aflibbvlnsv15',
               function(channel) {
                 if (data.stream == null) {
                   htmlOffline += "<div><a href='https://twitch.tv/" + username + "/profile' target='_blank'><span class='picture'><img src='" + (channel.logo == null ? "https://www.jobvizz.com/images/member-profile-picture-placeholder1.png" : channel.logo) + "'></span><span class='name'>" + channel.display_name + "</span></a><span class='status'><!-- offline --></span><i class='material-icons clear'>clear</i></div>"
